@@ -14,7 +14,7 @@ public class TestServirCervezaAl {
 	void testServirCervezaConCantidadSuficiente() {
 		// Valida que, cuando existe suficiente cerveza,
 		// se descuenta la cantidad solicitada y se retorna el valor a pagar.
-		Maquina maquina = new Maquina("Pilsener", "Cerveza artesanal", 0.01, 1000);
+		Maquina maquina = new Maquina("Pilsener", "Cerveza artesanal", 0.01, 1000, "123");
 
 		maquina.recargarCerveza(500);
 
@@ -28,7 +28,7 @@ public class TestServirCervezaAl {
 	void testServirCervezaCuandoCantidadSolicitadaEsExactamenteLaDisponible() {
 		// Valida que se pueda servir toda la cerveza disponible
 		// y que la cantidad actual quede en cero.
-		Maquina maquina = new Maquina("Pilsener", "Cerveza artesanal", 0.02, 1000);
+		Maquina maquina = new Maquina("Pilsener", "Cerveza artesanal", 0.02, 1000, "123");
 
 		maquina.recargarCerveza(500);
 
@@ -42,7 +42,7 @@ public class TestServirCervezaAl {
 	void testServirCervezaCuandoNoHayCantidadSuficiente() {
 		// Valida que, cuando la máquina no tiene suficiente cerveza,
 		// no se sirva nada y se retorne cero.
-		Maquina maquina = new Maquina("Pilsener", "Cerveza artesanal", 0.01, 1000);
+		Maquina maquina = new Maquina("Pilsener", "Cerveza artesanal", 0.01, 1000, "123");
 
 		maquina.recargarCerveza(300);
 
@@ -56,7 +56,7 @@ public class TestServirCervezaAl {
 	void testServirCervezaSinCervezaDisponible() {
 		// Valida que, cuando la máquina está vacía,
 		// no se pueda servir cerveza y la cantidad actual permanezca en cero.
-		Maquina maquina = new Maquina("Pilsener", "Cerveza artesanal", 0.01, 1000);
+		Maquina maquina = new Maquina("Pilsener", "Cerveza artesanal", 0.01, 1000, "123");
 
 		double valor = maquina.servirCerveza(200);
 
@@ -68,7 +68,7 @@ public class TestServirCervezaAl {
 	void testServirCervezaConConstructorDeTresParametros() {
 		// Valida el funcionamiento de servirCerveza usando
 		// el constructor que recibe nombre, descripción y precio.
-		Maquina maquina = new Maquina("Stout", "Cerveza oscura", 0.015);
+		Maquina maquina = new Maquina("Stout", "Cerveza oscura", 0.015, "123");
 
 		maquina.recargarCerveza(500);
 
@@ -82,7 +82,7 @@ public class TestServirCervezaAl {
 	void testServirCervezaConPrecioPorMililitroDiferente() {
 		// Valida que el valor a pagar dependa de la cantidad servida
 		// y del precio por mililitro configurado en la máquina.
-		Maquina maquina = new Maquina("IPA", "Cerveza tipo IPA", 0.025, 1000);
+		Maquina maquina = new Maquina("IPA", "Cerveza tipo IPA", 0.025, 1000, "123");
 
 		maquina.recargarCerveza(600);
 
@@ -96,13 +96,13 @@ public class TestServirCervezaAl {
 	void testServirCervezaConCantidadDisponibleLimite() {
 		// Valida que se pueda servir correctamente una cantidad
 		// que está dentro de la cerveza disponible.
-		Maquina maquina = new Maquina("Lager", "Cerveza ligera", 0.01, 1000);
+		Maquina maquina = new Maquina("Lager", "Cerveza ligera", 0.01, 1000, "123");
 
-		maquina.recargarCerveza(900);
+		maquina.recargarCerveza(800);
 
-		double valor = maquina.servirCerveza(899);
+		double valor = maquina.servirCerveza(799);
 
-		assertEquals(8.99, valor, DELTA);
+		assertEquals(7.99, valor, DELTA);
 		assertEquals(1.0, maquina.getCantidadActual(), DELTA);
 	}
 
@@ -110,7 +110,7 @@ public class TestServirCervezaAl {
 	void testServirCervezaNoModificaCantidadCuandoNoPuedeServir() {
 		// Valida específicamente que, ante una solicitud superior
 		// a la cantidad disponible, la cantidad actual no se modifique.
-		Maquina maquina = new Maquina("Amber", "Cerveza roja", 0.02, 1000);
+		Maquina maquina = new Maquina("Amber", "Cerveza roja", 0.02, 1000, "123");
 
 		maquina.recargarCerveza(400);
 		double cantidadAntes = maquina.getCantidadActual();

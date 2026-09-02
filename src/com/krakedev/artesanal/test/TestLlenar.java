@@ -7,7 +7,7 @@ public class TestLlenar {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		Maquina rubia = new Maquina("Pilsenar", "Cerveza Fria", 0.02, 8000);
+		Maquina rubia = new Maquina("Pilsenar", "Cerveza Fria", 0.02, 8000, "123");
 
 		rubia.imprimir();
 
@@ -15,7 +15,7 @@ public class TestLlenar {
 
 		rubia.imprimir();
 
-		Maquina negra = new Maquina("Club", "Cerveza Buena", 0.03);
+		Maquina negra = new Maquina("Club", "Cerveza Buena", 0.03, "123");
 
 		negra.imprimir();
 

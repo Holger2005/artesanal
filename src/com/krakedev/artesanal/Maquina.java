@@ -7,24 +7,31 @@ public class Maquina {
 	private double precioPorMl;
 	private double capacidadMaxima;
 	private double cantidadActual;
+	private String código;
 
-	public Maquina(String nombreCerveza, String descripcion, double precioPorMl, double capacidadMaxima) {
+	public String getCódigo() {
+		return código;
+	}
+
+	public Maquina(String nombreCerveza, String descripcion, double precioPorMl, double capacidadMaxima, String código) {
 
 		this.nombreCerveza = nombreCerveza;
 		this.descripcion = descripcion;
 		this.precioPorMl = precioPorMl;
 		this.capacidadMaxima = capacidadMaxima;
 		this.cantidadActual = 0;
-
+		this.código = código;
+		
 	}
 
-	public Maquina(String nombreCerveza, String descripcion, double precioPorMl) {
+	public Maquina(String nombreCerveza, String descripcion, double precioPorMl, String código) {
 
 		this.nombreCerveza = nombreCerveza;
 		this.descripcion = descripcion;
 		this.precioPorMl = precioPorMl;
 		this.capacidadMaxima = 10000;
 		this.cantidadActual = 0;
+		this.código = código;
 
 	}
 
@@ -63,20 +70,20 @@ public class Maquina {
 	public void imprimir() {
 		String mensaje;
 		mensaje = "Nombre cerveza: " + nombreCerveza + ", Descripción: " + descripcion + ", Precio por Ml: "
-				+ precioPorMl + ", Capacidad Máxima: " + capacidadMaxima + ", Cantidad Actual: " + cantidadActual;
+				+ precioPorMl + ", Capacidad Máxima: " + capacidadMaxima + ", Cantidad Actual: " + cantidadActual + ", Código: " + código;
 
 		System.out.println(mensaje);
 	}
 
 	public void llenarMaquina() {
 
-		this.cantidadActual = this.capacidadMaxima - 100;
+		this.cantidadActual = this.capacidadMaxima - 200;
 	}
 
 	public boolean recargarCerveza(double cantidad) {
 
 		double limitePermitido;
-		limitePermitido = capacidadMaxima - 100;
+		limitePermitido = capacidadMaxima - 200;
 
 		if (cantidadActual + cantidad <= limitePermitido) {
 
