@@ -1,10 +1,13 @@
 package com.krakedev.artesanal.testJUnit;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
+import com.krakedev.artesanal.Maquina;
 import com.krakedev.artesanal.NegocioMejorado;
 
 public class TestNegocioMejorado {
@@ -22,6 +25,20 @@ public class TestNegocioMejorado {
 		String numeroString = codigo.replace("M-", "");
 		int numero = Integer.parseInt(numeroString);
 		assertTrue(numero >= 1 && numero <= 100, "El número debe estar entre 1 y 100");
+	}
+
+	@Test
+	public void testRecuperarMaquina() {
+		negocio = new NegocioMejorado();
+		Maquina m1 = new Maquina("Roja", "Cerveza roja", 3.5, "M-50");
+		negocio.getMaquinas().add(m1);
+
+		Maquina recuperada = negocio.recuperarMaquina("M-50");
+		assertNotNull(recuperada, "Debe recuperar la máquina si el código existe");
+		assertEquals("Roja", recuperada.getNombreCerveza(), "El nombre debe coincidir");
+
+		Maquina noRecuperada = negocio.recuperarMaquina("M-99");
+		assertNull(noRecuperada, "Debe retornar null si la máquina no existe");
 	}
 
 }
