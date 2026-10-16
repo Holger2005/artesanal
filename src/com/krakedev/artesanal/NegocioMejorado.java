@@ -110,4 +110,16 @@ public class NegocioMejorado {
 
 		return null;
 	}
+
+	public void consumirCerveza(int codigoCliente, String codigoMaquina, double cantidad) {
+
+		Maquina mr = recuperarMaquina(codigoMaquina);
+		Cliente cr = buscarClientePorCodigo(codigoCliente);
+
+		if (mr != null && cr != null) {
+			double cervezaServida = mr.servirCerveza(cantidad);
+
+		}
+
+	}
 }
