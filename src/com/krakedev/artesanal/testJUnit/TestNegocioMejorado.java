@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
+import com.krakedev.artesanal.Cliente;
 import com.krakedev.artesanal.Maquina;
 import com.krakedev.artesanal.NegocioMejorado;
 
@@ -42,13 +43,33 @@ public class TestNegocioMejorado {
 	}
 
 	@Test
-
 	public void testAgregarMaquinaValidacion() {
 		negocio = new NegocioMejorado();
 		boolean agregada = negocio.agregarMaquina("Rubia", "Cerveza suave", 2.0);
 
 		assertTrue(agregada, "Debe retornar true al agregar una máquina nueva");
 		assertEquals(1, negocio.getMaquinas().size(), "El tamaño de la lista de máquinas debe ser 1");
+	}
+
+	@Test
+	public void testConsumirCervezaIntegracion() {
+		negocio = new NegocioMejorado();
+
+		negocio.agregarMaquina("Stout", "Cerveza negra", 3.0);
+		negocio.registrarCliente("Roberto", "1712345678");
+
+		Maquina maquina = negocio.getMaquinas().get(0);
+		String codigoMaquina = maquina.getCódigo();
+
+		negocio.cargarMaquina();
+
+		negocio.consumirCerveza(101, codigoMaquina, 50);
+
+		Cliente cliente = negocio.buscarClientePorCodigo(101);
+
+		assertEquals(150.0, cliente.getTotalConsumido(), 0.01,
+				"El cliente debe tener el valor consumido actualizado correctamente");
+		assertNotNull(maquina, "La máquina debe seguir existiendo y haber sido afectada");
 	}
 
 }
