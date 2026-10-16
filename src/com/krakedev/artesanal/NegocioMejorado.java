@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class NegocioMejorado {
 
 	ArrayList<Maquina> maquinas;
-	private ArrayList<Cliente> clientes;
+	private ArrayList<Cliente> clientes = new ArrayList<>();
 	private int ultimoCodigo = 100;
 
 	public NegocioMejorado() {
@@ -77,5 +77,20 @@ public class NegocioMejorado {
 
 		clientes.add(nuevoCliente);
 
+	}
+
+	public Cliente buscarClientePorCedula(String cedula) {
+
+		for (int i = 0; i < clientes.size(); i++) {
+
+			Cliente cliente = clientes.get(i);
+
+			if (cedula != null && cliente.getCedula().equals(cedula)) {
+				return cliente;
+			}
+
+		}
+
+		return null;
 	}
 }
