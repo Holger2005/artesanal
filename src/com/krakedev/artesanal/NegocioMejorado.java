@@ -118,8 +118,15 @@ public class NegocioMejorado {
 
 		if (mr != null && cr != null) {
 			double cervezaServida = mr.servirCerveza(cantidad);
-
+			registrarConsumo(cr, cervezaServida);
 		}
+
+	}
+
+	public void registrarConsumo(Cliente cliente, double valorConsumido) {
+
+		double consumoActual = cliente.getTotalConsumido();
+		cliente.setTotalConsumido(consumoActual + valorConsumido);
 
 	}
 }
