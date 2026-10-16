@@ -71,5 +71,23 @@ public class TestNegocioMejorado {
 				"El cliente debe tener el valor consumido actualizado correctamente");
 		assertNotNull(maquina, "La máquina debe seguir existiendo y haber sido afectada");
 	}
+	
+	@Test
+    public void testConsultarValorVendido() {
+		negocio = new NegocioMejorado();
+        negocio.registrarCliente("Carlos", "1111111111");
+        negocio.registrarCliente("Maria", "2222222222");
+
+        Cliente c1 = negocio.buscarClientePorCodigo(101);
+        Cliente c2 = negocio.buscarClientePorCodigo(102);
+
+        c1.setTotalConsumido(15.5);
+        c2.setTotalConsumido(20.0);
+
+        double total = negocio.consultarValorVendido();
+        assertEquals(35.5, total, "La suma del valor vendido debe ser exacta a los consumos individuales");
+    }
+	
+	
 
 }
