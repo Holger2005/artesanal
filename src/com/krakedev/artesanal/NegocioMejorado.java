@@ -35,4 +35,14 @@ public class NegocioMejorado {
 		maquinas.add(m1);
 
 	}
+
+	public void cargarMaquina() {
+
+		for (int i = 0; i < maquinas.size(); i++) {
+
+			Maquina maquina = maquinas.get(i);
+			maquina.LlenarMaquina();
+
+		}
+	}
 }
