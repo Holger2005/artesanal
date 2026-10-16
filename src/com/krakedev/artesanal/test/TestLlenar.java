@@ -11,7 +11,7 @@ public class TestLlenar {
 
 		rubia.imprimir();
 
-		rubia.llenarMaquina();
+		rubia.LlenarMaquina();
 
 		rubia.imprimir();
 
@@ -19,7 +19,7 @@ public class TestLlenar {
 
 		negra.imprimir();
 
-		negra.llenarMaquina();
+		negra.LlenarMaquina();
 
 		negra.imprimir();
 

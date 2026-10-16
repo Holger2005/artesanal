@@ -13,7 +13,7 @@ public class TestServir {
 		rubia.imprimir();
 
 		System.out.println("------------LLENANDO MAQUINA---------");
-		rubia.llenarMaquina();
+		rubia.LlenarMaquina();
 		rubia.imprimir();
 
 		System.out.println("------------SERVIR 1000 ML---------");
@@ -29,13 +29,13 @@ public class TestServir {
 		valor = rubia.servirCerveza(2000);
 
 		System.out.println("Valor a pagar: " + valor);
-		
+
 		System.out.println("------------SERVIR 6000 ML---------");
 
 		valor = rubia.servirCerveza(6000);
 
 		System.out.println("Valor a pagar: " + valor);
-		
+
 		rubia.imprimir();
 
 	}

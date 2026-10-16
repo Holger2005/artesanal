@@ -13,7 +13,7 @@ public class TestLlenarJUnit {
 
 		Maquina rubia = new Maquina("Pilsener", "cerveza", 0.02, 8000, "123");
 
-		rubia.llenarMaquina();
+		rubia.LlenarMaquina();
 
 		assertEquals(7800, rubia.getCantidadActual(), 0.0001);
 
