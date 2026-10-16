@@ -25,4 +25,14 @@ public class NegocioMejorado {
 		return codigo;
 
 	}
+
+	public void agregarMaquina(String nombreCerveza, String descripcion, double precio) {
+
+		String codigo = generarCodigo();
+
+		Maquina m1 = new Maquina(nombreCerveza, descripcion, precio, codigo);
+
+		maquinas.add(m1);
+
+	}
 }
