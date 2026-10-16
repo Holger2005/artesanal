@@ -41,4 +41,14 @@ public class TestNegocioMejorado {
 		assertNull(noRecuperada, "Debe retornar null si la máquina no existe");
 	}
 
+	@Test
+
+	public void testAgregarMaquinaValidacion() {
+		negocio = new NegocioMejorado();
+		boolean agregada = negocio.agregarMaquina("Rubia", "Cerveza suave", 2.0);
+
+		assertTrue(agregada, "Debe retornar true al agregar una máquina nueva");
+		assertEquals(1, negocio.getMaquinas().size(), "El tamaño de la lista de máquinas debe ser 1");
+	}
+
 }
